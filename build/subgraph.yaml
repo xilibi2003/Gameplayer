@@ -1,14 +1,14 @@
 specVersion: 0.0.2
 description: Gravatar for Ethereum
-repository: https://github.com/xilibi2003/gameplayer
+repository: https://github.com/graphprotocol/example-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Gravity
     network: ropsten
     source:
-      address: '0x8CfDDbD441Fc6ffE3c02244a6B93EF9e89FaFA4D'
+      address: "0x8CfDDbD441Fc6ffE3c02244a6B93EF9e89FaFA4D"
       abi: Gravity
     mapping:
       kind: ethereum/events
@@ -18,10 +18,10 @@ dataSources:
         - Gravatar
       abis:
         - name: Gravity
-          file: ./abis/Gravity.json
+          file: Gravity/abis/Gravity.json
       eventHandlers:
         - event: NewGravatar(uint256,address,string,string)
           handler: handleNewGravatar
         - event: UpdatedGravatar(uint256,address,string,string)
           handler: handleUpdatedGravatar
-      file: ./src/mapping.ts
+      file: Gravity/Gravity.wasm
